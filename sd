@@ -1,0 +1,35 @@
+[33mcommit 01ee1abfe0dd4b5000a3e2d0877e1d07848a9f69[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: nurxan <ertaev.nurxan@bk.ru>
+Date:   Sat May 4 10:21:06 2024 +0600
+
+    updated Procfile
+
+[33mcommit cd7475b00dca5906192dd783e65cda2083b1b5f1[m
+Author: nurxan <ertaev.nurxan@bk.ru>
+Date:   Sat May 4 09:47:19 2024 +0600
+
+    update redis path
+
+[33mcommit 8269d08a78512f6e82f1daad0bef2cacd30b04b8[m
+Author: nurxan <ertaev.nurxan@bk.ru>
+Date:   Sat May 4 09:43:28 2024 +0600
+
+    updated Procfile
+
+[33mcommit ce1a714147b9a41d4b97d7d9da3d7c913d30a1e8[m
+Author: nurxan <ertaev.nurxan@bk.ru>
+Date:   Sat May 4 09:28:57 2024 +0600
+
+    first commit
+
+[33mcommit 5155ea1c6cb52981561701fe1cbe3979d46529b3[m
+Author: nurxan <ertaev.nurxan@bk.ru>
+Date:   Mon Apr 29 22:52:49 2024 +0600
+
+    Add webapp packages
+
+[33mcommit f031f7c1c0178f6a910db3edc91d6885a794eca8[m
+Author: nurxan <ertaev.nurxan@bk.ru>
+Date:   Mon Apr 29 22:50:34 2024 +0600
+
+    Add initial set of files
