@@ -19,4 +19,5 @@ $ws_worker->onClose = function ($connection) {
 };
 
 Worker::$daemonize = false;
+Worker::$reusePort = true;
 Worker::runAll();
