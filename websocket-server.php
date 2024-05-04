@@ -18,4 +18,5 @@ $ws_worker->onClose = function ($connection) {
     echo "Connection closed\n";
 };
 
+Worker::$daemonize = true;
 Worker::runAll();
