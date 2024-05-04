@@ -32,7 +32,7 @@ class StartWebSocketServerCommand extends Command
         $worker->onMessage = [$this->handler, 'onMessage'];
         $worker->onClose = [$this->handler, 'onClose'];
 
-
+        print_r($output);
         Worker::runAll();
         return Command::SUCCESS;
     }
