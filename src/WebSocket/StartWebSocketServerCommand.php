@@ -24,7 +24,7 @@ class StartWebSocketServerCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $worker = new Worker();
+        $worker = new Worker("websocket://0.0.0.0:" . getenv('PORT'));
         $worker->onWebSocketConnect = function ($connection, $http_header) {
             $this->handler->onWebSocketConnect($connection, $http_header);
         };
