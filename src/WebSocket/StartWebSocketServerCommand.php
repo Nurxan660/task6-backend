@@ -24,7 +24,7 @@ class StartWebSocketServerCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $worker = new Worker('websocket://0.0.0.0:2346');
+        $worker = new Worker();
         $worker->onWebSocketConnect = function ($connection, $http_header) {
             $this->handler->onWebSocketConnect($connection, $http_header);
         };
@@ -32,7 +32,6 @@ class StartWebSocketServerCommand extends Command
         $worker->onMessage = [$this->handler, 'onMessage'];
         $worker->onClose = [$this->handler, 'onClose'];
 
-        print_r($output);
         Worker::runAll();
         return Command::SUCCESS;
     }
