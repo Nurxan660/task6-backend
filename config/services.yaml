@@ -4,7 +4,6 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
-    redis_url: '%env(REDIS_URL)%'
 
 services:
     _defaults:
@@ -25,5 +24,5 @@ services:
     Redis\Client:
         class: Predis\Client
         arguments:
-            - '%redis_url%'
+            - 'redis-14051.c62.us-east-1-4.ec2.redns.redis-cloud.com:14051'
     Predis\Client: '@Redis\Client'
