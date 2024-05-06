@@ -1,22 +1,21 @@
+#!/usr/bin/env php
 <?php
 
+use App\WebSocket\WebSocketHandler;
 use Workerman\Worker;
+use Predis\Client;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$ws_worker = new Worker('websocket://0.0.0.0:2346');
-$ws_worker->reusePort = true;
-$ws_worker->onConnect = function ($connection) {
-    echo "New connection\n";
-};
+$client = new Client('redis-14051.c62.us-east-1-4.ec2.redns.redis-cloud.com:14051');
+$handler = new WebSocketHandler($client);
 
-$ws_worker->onMessage = function ($connection, $data) {
-    $connection->send('Hello ' . $data);
+$worker = new Worker("websocket://0.0.0.0:2346");
+$worker->onWebSocketConnect = function ($connection, $http_header) use ($handler) {
+    $handler->onWebSocketConnect($connection, $http_header);
 };
+$worker->onConnect = [$handler, 'onConnect'];
+$worker->onMessage = [$handler, 'onMessage'];
+$worker->onClose = [$handler, 'onClose'];
 
-$ws_worker->onClose = function ($connection) {
-    echo "Connection closed\n";
-};
-
-Worker::$daemonize = false;
 Worker::runAll();

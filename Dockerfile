@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y \
     && a2enmod rewrite \
     && docker-php-ext-install \
     pdo_pgsql \
-    zip
+    zip \
+    pcntl
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 
@@ -27,4 +28,4 @@ RUN composer install --no-dev --optimize-autoloader
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+CMD nohup php websocket-server.php start & apache2-foreground
