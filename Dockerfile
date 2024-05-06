@@ -26,6 +26,6 @@ COPY . /var/www/symfony
 
 RUN composer install --no-dev --optimize-autoloader
 
-EXPOSE 80 2346
+EXPOSE 80
 
 CMD nohup php websocket-server.php start & apache2-foreground
